@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nokia-style CSS Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Courier New', monospace;
+  background-color: #9BBB58;
+  color: #000000;
+  overflow: hidden;
+  
+  /* Disable touch interactions */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  /* Disable tap highlighting */
+  -webkit-tap-highlight-color: transparent;
+  
+  /* Disable text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Disable all pointer events on touch devices */
+@media (pointer: coarse) {
+  * {
+    pointer-events: none;
+  }
+  
+  /* Re-enable for keyboard navigation elements */
+  [tabindex], button, input, select, textarea {
+    pointer-events: auto;
+  }
+}
+
+/* Nokia-style pixel font */
+.font-nokia {
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+/* Disable image dragging */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+/* Disable text highlighting */
+::selection {
+  background: transparent;
+}
+
+::-moz-selection {
+  background: transparent;
+}
+
+/* Custom scrollbar for Nokia style */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #9BBB58;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #666666;
+  border: 1px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* Disable context menu */
+* {
+  -webkit-context-menu: none;
+  -moz-context-menu: none;
+  -o-context-menu: none;
+  context-menu: none;
+}
+
+/* Focus styles for keyboard navigation */
+*:focus {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
+
+/* Disable smooth scrolling for authentic retro feel */
+html {
+  scroll-behavior: auto;
+}
+
+/* Ensure crisp pixel rendering */
+* {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}

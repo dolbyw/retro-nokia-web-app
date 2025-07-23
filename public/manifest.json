@@ -1,0 +1,56 @@
+{
+  "name": "Nokia Retro Phone",
+  "short_name": "Nokia3310",
+  "description": "Classic Nokia 3310 UI experience for modern browsers",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#9BBB58",
+  "theme_color": "#9BBB58",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["entertainment", "games", "utilities"],
+  "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "scope": "/",
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Contacts",
+      "short_name": "Contacts",
+      "description": "View contacts",
+      "url": "/?screen=contacts",
+      "icons": [{
+        "src": "/favicon.svg",
+        "sizes": "96x96"
+      }]
+    },
+    {
+      "name": "Messages",
+      "short_name": "Messages",
+      "description": "View messages",
+      "url": "/?screen=messages",
+      "icons": [{
+        "src": "/favicon.svg",
+        "sizes": "96x96"
+      }]
+    },
+    {
+      "name": "Snake Game",
+      "short_name": "Snake",
+      "description": "Play Snake game",
+      "url": "/?screen=snake",
+      "icons": [{
+        "src": "/favicon.svg",
+        "sizes": "96x96"
+      }]
+    }
+  ]
+}
