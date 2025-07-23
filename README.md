@@ -2,8 +2,6 @@
 
 一个完全复刻 Nokia 3310 经典界面的网页应用，支持纯键盘导航，完美还原复古按键机体验。
 
-![Nokia 3310 UI](https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=Nokia%203310%20classic%20phone%20interface%20with%20monochrome%20LCD%20screen%20showing%20menu%20options%2C%20retro%20mobile%20phone%20UI%20design%2C%20pixel%20art%20style%2C%20green%20backlight%2C%20classic%20mobile%20interface&image_size=landscape_16_9)
-
 ## ✨ 项目特色
 
 - 🎯 **完全复刻 Nokia 3310 界面** - 像素级还原经典 UI 设计，包括经典的单色LCD显示效果
@@ -20,36 +18,43 @@
 ## 📱 界面截图
 
 ### 主界面
-![主界面](https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=Nokia%203310%20home%20screen%20with%20Nokia%20logo%2C%20China%20Mobile%20carrier%2C%20signal%20bars%2C%20battery%20indicator%2C%20time%20and%20date%2C%20monochrome%20LCD%20display%2C%20retro%20mobile%20interface&image_size=portrait_4_3)
+<img width="334" height="508" alt="{15277818-6D27-425A-8846-5EA237B91482}" src="https://github.com/user-attachments/assets/d17ab304-1dcc-4441-8f80-92911b572c84" />
+
 
 经典的Nokia开机界面，显示运营商信息、信号强度、电池电量和当前时间日期。
 
 ### 主菜单
-![主菜单](https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=Nokia%203310%20main%20menu%20with%20icons%20for%20contacts%2C%20messages%2C%20games%2C%20settings%2C%20classic%20mobile%20phone%20menu%20layout%2C%20monochrome%20display&image_size=portrait_4_3)
+<img width="335" height="507" alt="{A656D57F-CDEC-46E1-9EA8-35E1A10B92FB}" src="https://github.com/user-attachments/assets/e09a5e34-861c-4e84-8e30-52bbc08708b3" />
+
 
 包含通讯录、短信、游戏、设置等经典功能模块的主菜单界面。
 
 ### 游戏界面
-![俄罗斯方块](https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=Nokia%203310%20Tetris%20game%20screen%20with%20falling%20blocks%2C%20score%20display%2C%20next%20piece%20preview%2C%20classic%20mobile%20game%20interface%2C%20monochrome%20LCD&image_size=portrait_4_3)
+
+
+<img width="335" height="506" alt="{4D6192D5-EFD0-4300-934C-DF49B65434D9}" src="https://github.com/user-attachments/assets/4324d300-7bf4-4d9f-85ba-4b8ab08d694f" />
 
 完全复刻的俄罗斯方块游戏，包含得分显示、下一个方块预览等经典元素。
 
-![贪吃蛇](https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=Nokia%203310%20Snake%20game%20screen%20with%20snake%20moving%20on%20grid%2C%20food%20dots%2C%20score%20display%2C%20classic%20mobile%20game%20interface%2C%20monochrome%20LCD&image_size=portrait_4_3)
+
+
+<img width="334" height="506" alt="{EBF3E926-9FAE-4901-B370-4BE2020FB45B}" src="https://github.com/user-attachments/assets/a6641ff4-6b3a-4491-a5a3-3e54a1e0d4bd" />
 
 经典贪吃蛇游戏，保持原版的游戏机制和视觉效果。
 
 ### 通讯录界面
-![通讯录](https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=Nokia%203310%20contacts%20list%20with%20names%20and%20phone%20numbers%2C%20scrollable%20menu%2C%20classic%20mobile%20phone%20interface%2C%20monochrome%20display&image_size=portrait_4_3)
+<img width="335" height="506" alt="{8EA88E05-0356-4219-9E87-2CC5D1C8EFA4}" src="https://github.com/user-attachments/assets/f7e8d988-4eb4-4481-baa1-4c64aa51cb99" />
 
 支持添加、查看、删除联系人的通讯录管理界面。
 
 ### 短信界面
-![短信](https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=Nokia%203310%20SMS%20messages%20interface%20with%20conversation%20list%2C%20message%20preview%2C%20classic%20mobile%20messaging%2C%20monochrome%20LCD&image_size=portrait_4_3)
+<img width="335" height="509" alt="{1F04D18C-3EA9-42F5-80D2-5AD085E9EE8C}" src="https://github.com/user-attachments/assets/3263df98-b439-4777-b31e-1dd6e97b7ab0" />
 
 模拟短信收发功能，支持对话管理和消息编写。
 
 ### 设置界面
-![设置](https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=Nokia%203310%20settings%20menu%20with%20options%20for%20ringtone%2C%20backlight%2C%20contrast%2C%20language%2C%20classic%20mobile%20settings%2C%20monochrome%20display&image_size=portrait_4_3)
+<img width="335" height="509" alt="{67CE121D-6C89-4AF6-812A-027223F827D1}" src="https://github.com/user-attachments/assets/23b41c7a-72fd-410a-980f-7fa41808a3c8" />
+
 
 包含铃声、背光、对比度、语言等个性化设置选项。
 
@@ -304,12 +309,6 @@ MIT License - 详见 [LICENSE](LICENSE) 文件
 - 提交信息使用 [Conventional Commits](https://conventionalcommits.org/) 格式
 - 新功能需要添加相应的测试用例
 - 确保所有测试通过后再提交
-
-## 🙏 致谢
-
-感谢所有为这个项目做出贡献的开发者！
-
-特别感谢 Nokia 3310 为我们带来的经典回忆。
 
 ---
 
