@@ -3,6 +3,7 @@ import { useKeyboardNavigation } from '../hooks/useKeyboardNavigation';
 import { useLanguage } from '../hooks/useLanguage';
 import { useNokiaStore } from '../store/useNokiaStore';
 import { getLanguageDisplayName, supportedLanguages } from '../locales';
+import { ringtoneManager } from '../utils/ringtoneManager';
 
 interface SettingItem {
   id: string;
@@ -14,17 +15,30 @@ interface SettingItem {
 
 const SettingsScreen: React.FC = () => {
   const { t, currentLanguage, changeLanguage } = useLanguage();
-  const { touchBlocked, setTouchBlocked, language, setLanguage, setScreen } = useNokiaStore();
+  const { touchBlocked, setTouchBlocked, language, setLanguage, setScreen, ringtone, setRingtone } = useNokiaStore();
   
   const [settings, setSettings] = useState<SettingItem[]>([]);
+  const [isPlayingRingtone, setIsPlayingRingtone] = useState(false);
+
+  // 初始化铃声管理器
+  useEffect(() => {
+    ringtoneManager.initialize();
+  }, []);
   
   useEffect(() => {
+    // 铃声选项映射
+    const ringtoneMap: { [key: string]: string } = {
+      'nokia': t.nokiaTune,
+      'beep': t.beep,
+      'silent': t.silent
+    };
+
     const newSettings: SettingItem[] = [
       {
         id: 'ringtone',
         name: t.ringtone,
         type: 'select',
-        value: t.nokiaTune,
+        value: ringtoneMap[ringtone] || t.nokiaTune,
         options: [t.nokiaTune, t.beep, t.silent]
       },
       {
@@ -68,27 +82,27 @@ const SettingsScreen: React.FC = () => {
       }
     ];
     setSettings(newSettings);
-  }, [t, touchBlocked, currentLanguage]);
+  }, [t, touchBlocked, currentLanguage, ringtone]);
 
-  const handleSettingClick = (index: number) => {
+  const handleSettingClick = async (index: number) => {
     if (touchBlocked) return;
     
     const setting = settings[index];
     if (setting.type === 'toggle') {
       toggleSetting(setting.id);
     } else if (setting.type === 'select') {
-      cycleSetting(setting.id);
+      await cycleSetting(setting.id);
     }
   };
 
   const { selectedIndex } = useKeyboardNavigation({
     maxIndex: settings.length,
-    onEnter: () => {
+    onEnter: async () => {
       const setting = settings[selectedIndex];
       if (setting.type === 'toggle') {
         toggleSetting(setting.id);
       } else if (setting.type === 'select') {
-        cycleSetting(setting.id);
+        await cycleSetting(setting.id);
       }
     }
   });
@@ -105,13 +119,33 @@ const SettingsScreen: React.FC = () => {
     }
   };
 
-  const cycleSetting = (id: string) => {
+  const cycleSetting = async (id: string) => {
     if (id === 'language') {
       const currentIndex = supportedLanguages.indexOf(currentLanguage);
       const nextIndex = (currentIndex + 1) % supportedLanguages.length;
       const newLanguage = supportedLanguages[nextIndex];
       changeLanguage(newLanguage);
       setLanguage(newLanguage);
+    } else if (id === 'ringtone') {
+      // 铃声选项循环
+      const ringtoneIds = ['nokia', 'beep', 'silent'];
+      const currentIndex = ringtoneIds.indexOf(ringtone);
+      const nextIndex = (currentIndex + 1) % ringtoneIds.length;
+      const newRingtone = ringtoneIds[nextIndex];
+      
+      setRingtone(newRingtone);
+      
+      // 预览新铃声
+      if (newRingtone !== 'silent') {
+        setIsPlayingRingtone(true);
+        try {
+          await ringtoneManager.previewRingtone(newRingtone);
+        } catch (error) {
+          console.warn('Failed to preview ringtone:', error);
+        } finally {
+          setTimeout(() => setIsPlayingRingtone(false), 2000);
+        }
+      }
     } else {
       setSettings(prev => prev.map(setting => {
         if (setting.id === id && setting.options) {
@@ -143,8 +177,15 @@ const SettingsScreen: React.FC = () => {
         );
       case 'select':
         return (
-          <div className="text-sm">
-            {setting.value as string}
+          <div className="flex items-center">
+            <div className="text-sm">
+              {setting.value as string}
+            </div>
+            {setting.id === 'ringtone' && isPlayingRingtone && (
+              <div className="ml-2 text-xs animate-pulse">
+                ♪
+              </div>
+            )}
           </div>
         );
       case 'info':
@@ -225,14 +266,14 @@ const SettingsScreen: React.FC = () => {
           className={`text-left cursor-pointer ${
             !touchBlocked ? 'hover:bg-[#7A9B42] hover:text-white' : ''
           } px-2 py-1 rounded transition-colors duration-150`}
-          onClick={() => {
+          onClick={async () => {
             if (touchBlocked) return;
             // Simulate Enter key press
             const setting = settings[selectedIndex];
             if (setting.type === 'toggle') {
               toggleSetting(setting.id);
             } else if (setting.type === 'select') {
-              cycleSetting(setting.id);
+              await cycleSetting(setting.id);
             }
           }}
         >

@@ -36,6 +36,7 @@ interface NokiaState {
   gameRunning: boolean;
   touchBlocked: boolean;
   language: string;
+  ringtone: string;
   
   // Actions
   setScreen: (screen: Screen) => void;
@@ -47,6 +48,7 @@ interface NokiaState {
   setGameRunning: (running: boolean) => void;
   setTouchBlocked: (blocked: boolean) => void;
   setLanguage: (language: string) => void;
+  setRingtone: (ringtone: string) => void;
   goBack: () => void;
   
   // Contact actions
@@ -111,6 +113,7 @@ export const useNokiaStore = create<NokiaState>((set, get) => ({
   gameRunning: false,
   touchBlocked: false, // Default to allow touch for better user experience
   language: 'en',
+  ringtone: 'nokia', // Default to Nokia tune
 
   setScreen: (screen) => set({ currentScreen: screen, selectedIndex: 0 }),
   setSelectedIndex: (index) => set({ selectedIndex: index }),
@@ -121,6 +124,7 @@ export const useNokiaStore = create<NokiaState>((set, get) => ({
   setGameRunning: (running) => set({ gameRunning: running }),
   setTouchBlocked: (blocked) => set({ touchBlocked: blocked }),
   setLanguage: (language) => set({ language: language }),
+  setRingtone: (ringtone) => set({ ringtone: ringtone }),
   
   // Contact actions
   addContact: (name, phone) => set((state) => ({
